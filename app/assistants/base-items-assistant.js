@@ -4,7 +4,7 @@ var BaseItemsAssistant = Class.create(BaseAssistant, {
     this.instapaper = new Instapaper();
     this.items = {items: []};
     this.allowItemDelete = true;
-    this.commandMenuItems = [{}, {}, {label: "Refresh", icon: "refresh", command: "refresh"}];
+    this.commandMenuItems = [{}, {menuClass: 'palm-white'}, {label: "Refresh", icon: "refresh", command: "refresh"}];
   },
 
   setup: function($super) {
