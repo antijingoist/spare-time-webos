@@ -4,13 +4,13 @@ var BaseItemsAssistant = Class.create(BaseAssistant, {
     this.instapaper = new Instapaper();
     this.items = {items: []};
     this.allowItemDelete = true;
-    this.commandMenuItems = [{}, {menuClass: 'palm-white'}, {label: "Refresh", icon: "refresh", command: "refresh"}];
+    this.commandMenuItems = [{}, {label: "Refresh", icon: "refresh", command: "refresh"}];
   },
 
   setup: function($super) {
     $super();
     this.controller.setupWidget("items", {itemTemplate: 'items/item', onItemRendered: this.itemRendered.bind(this), swipeToDelete: this.allowItemDelete}, this.items);
-    this.controller.setupWidget(Mojo.Menu.commandMenu, {}, {items: this.commandMenuItems});
+    this.controller.setupWidget(Mojo.Menu.commandMenu, {menuClass: 'palm-white'}, {items: this.commandMenuItems});
     this.controller.listen("items", Mojo.Event.listTap, this.itemTapped = this.itemTapped.bind(this));
     this.controller.listen("items", Mojo.Event.listDelete, this.itemDeleted = this.itemDeleted.bind(this));
     this.controller.listen("switch", Mojo.Event.tap, this.swapScene = this.swapScene.bind(this));
